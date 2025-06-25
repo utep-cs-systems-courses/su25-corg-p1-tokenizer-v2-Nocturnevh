@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tokenizer.h"
 
 
@@ -29,15 +30,7 @@ char *token_start(char *str){
 }
 
 char *token_terminator(char *token){
-  int i = 0;
-  while(non_space_char(token[i])){
-    i++;
-  }
-  if(token[i] == '\0'){
-    return "\0";
-  }
-  i--;
-  return &token[i];
+  return token + strlen(token); 
 }
 
 int count_tokens(char *str){
