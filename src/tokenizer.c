@@ -39,3 +39,7 @@ char *token_terminator(char *token){
   i--;
   return &word[i];
 }
+
+int count_tokens(char *str){
+
+}
