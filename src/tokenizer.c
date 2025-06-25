@@ -4,7 +4,7 @@
 
 
 int space_char(char c){
-  if(c = '\t' | c = ' '){
+  if(c = '\t' || c = ' '){
     return 1;
   }
   return 0;
@@ -29,15 +29,15 @@ char *token_start(char *str){
 }
 
 char *token_terminator(char *token){
-  int i =0;
-  while(non_space_char(word[i])){
+  int i = 0;
+  while(non_space_char(token[i])){
     i++;
   }
-  if(word[i] == '\0'){
+  if(token[i] == '\0'){
     return "\0";
   }
   i--;
-  return &word[i];
+  return &token[i];
 }
 
 int count_tokens(char *str){
