@@ -17,7 +17,25 @@ int non_space_char(char c){
   return 0;
 }
 
-char * token_start(char *str){
-  
+char *token_start(char *str){
+  int i = 0;
+  while(str[i] != '\0'){
+    if(non_space_char(str[i])){
+      return &str[i];
+    }
+    i++;
+  }
+  return "\0";
+}
 
+char *token_terminator(char *token){
+  int i =0;
+  while(non_space_char(word[i])){
+    i++;
+  }
+  if(word[i] == '\0'){
+    return "\0";
+  }
+  i--;
+  return &word[i];
 }
