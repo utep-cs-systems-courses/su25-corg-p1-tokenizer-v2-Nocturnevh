@@ -34,5 +34,18 @@ char *token_terminator(char *token){
 }
 
 int count_tokens(char *str){
+  int count = 0;
+  char *pos = str;
 
+  while((pos = token_start(pos)) != NULL){
+    count++;
+    while(*pos != '\0' && !space_char(*pos)){
+      pos++;
+    }
+  }
+  return count;
 }
+
+char *copy_str(char *inStr, short len){
+}
+
