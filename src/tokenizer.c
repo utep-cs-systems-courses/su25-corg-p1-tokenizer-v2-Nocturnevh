@@ -47,5 +47,11 @@ int count_tokens(char *str){
 }
 
 char *copy_str(char *inStr, short len){
+  char *newStr = malloc((len+1) * sizeof(char));
+  for(int i = 0; i < len; i++){
+    newStr[i] = inStr[i];
+  }
+  newStr[len] = '\0';
+  return newStr;
 }
 
