@@ -24,6 +24,7 @@ char *token_start(char *str){
     }
     str++;
   }
+  return NULL;
 }
 
 char *token_terminator(char *token){
@@ -55,3 +56,42 @@ char *copy_str(char *inStr, short len){
   return newStr;
 }
 
+char **tokenize(char* str){
+  int count =  count_tokens(str);
+  char **token = malloc((count +1) * sizeof(char *));
+  char *pos = str;
+  int i = 0;
+
+  while(i < count){
+    pos = token_start(pos);
+    char *start = pos;
+    int len =  0;
+
+    while(*pos != '\0' && !space_char(*pos)){
+      len++;
+      pos++;
+    }
+    token[i] = copy_str(start, len);
+    i++;
+  }
+  token[count] = NULL;
+  return token;
+}
+
+void print_tokens(char **tokens){
+  int i = 0;
+  while(tokens[i]){
+    printf("Tokens[%d] = %s\n", i, tokens[i]);
+    i++;
+  }
+  printf("Tokens[%d] = %d\n", i, 0);
+}
+
+void free_tokens(char **tokens){
+  int i = 0;
+  while(tokens[i]){
+    free(tokens[i]);
+    i++;
+  }
+  free(tokens);
+}
