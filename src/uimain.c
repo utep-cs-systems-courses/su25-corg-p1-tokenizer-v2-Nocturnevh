@@ -12,7 +12,7 @@ int main(){
 
   
   printf("Welcome to my tokenizer, type a string and watch it be tokenized.\n");
-  printf("To view history !h.\nTo view num history  type ! followed by number 0-9.\n");
+  printf("To view history !h.\nTo view num history  type ! followed by number 0-9.\nTo exit type !q.\n");
   
   while(1){
     printf("$ ");
